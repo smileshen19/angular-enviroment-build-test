@@ -1,10 +1,15 @@
 {
   "name": "angular7-enviroment-build-test",
   "version": "0.0.0",
+  "config": { "env" : "build_basic" },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build_": "node --max_old_space_size=4096 %~dp0/../node_modules/@angular/cli/bin/ng build --prod --vendor-chunk=false ----build-optimizer=false",
+    "build_basic": "node --max_old_space_size=4096 %~dp0/../node_modules/@angular/cli/bin/ng build --prod --vendor-chunk=false ----build-optimizer=false --configuration=%npm_package_config_env%",
+    "build_dev": "npm run build_basic --angular7-enviroment-build-test:env=dev",
+    "build_prod": "npm run build_basic --angular7-enviroment-build-test:env=prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
